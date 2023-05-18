@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FEE CALCULATOR</title>
+    <style>
+        
+
+.form{
+    border: 1px solid black;
+     width: fit-content;
+     text-align: center;
+     margin: auto;
+     border-radius: 20px;
+     margin-top: 100px;
+     background-color: rgba(255,255 , 255, 0.4);
+}
+.form label{
+    font-size: larger;
+    font-weight: 500;
+}
+body{
+    background-image: url(mediamodifier-I3HPUolh5hA-unsplash.jpg);
+    background-size: cover;
+}
+input{
+    height:20px;
+}
+select{
+    height: 30px;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = () =>
+ {
+   
+   document.querySelector('#calculate').onclick = calculateBill;
+ }
+
+
+     function calculateBill() {
+       var numGuests = document.getElementById("numGuests").value;
+       var eventsel = 0;
+       var discountsel = 0;
+       var eventsel = document.getElementById("eventsel").value;
+       var discountsel = document.getElementById("discountsel").value;
+
+       switch (eventsel) {
+         case "0":
+         eventsel = 0;
+           break;
+         case "1":
+         eventsel = 100;
+           break;
+         case "2":
+         eventsel = 150;
+           break;
+         case "3":
+         eventsel = 200;
+           break;
+       }
+
+       switch (discountsel) {
+         case "0":
+         discountsel = 0;
+           break;
+         case "1":
+         discountsel = 20;
+           break;
+         case "2":
+         discountsel = 30;
+           break;
+       }
+
+       var totalCost = (numGuests * eventsel) - (numGuests * discountsel);
+       var person = (eventsel - discountsel);
+
+       document.getElementById("totalCost").innerHTML = "Rs " + totalCost.toFixed(2);
+       document.getElementById("person").innerHTML = "Rs " + person.toFixed(2);
+     }
+   </script>
+ </head>
+ <body>
+     <div class="form">
+       <h1 style="font-style: italic;text-decoration: underline;">REGISTRATION FEES CALCULATOR</h1>
+   </span>
+       <div class="wrapper"><br>
+   <p>
+     <label for="numGuest">Number of person per team:</label><br>
+     <input style="text-align: center;" type="number" id="numGuests" value="0">
+   </p>
+
+   <p>
+     <label>Event Name:</label><br>
+     <select id="eventsel">
+       <option value="0">Select a Event</option>
+       <option value="1">Paper Presentation (Rs 100 per person)</option>
+       <option value="2">Web design (Rs 150 per person)</option>
+       <option value="3">Coding (Rs200 per person)</option>
+     </select>
+   </p>
+
+   <p>
+     <label>Discount:</label><br>
+     <select id="discountsel">
+       <option value="0">Select  Discount</option>
+       <option value="1">Inter College(Rs 20 per person)</option>
+       <option value="2">Outer College (Rs 30 per person)</option>
+     </select>
+   </p>
+<br>
+   <button style="background-color: blue;width: 100px;color: aliceblue;height: 30px;font-style: oblique;font-weight: 500;border-radius: 10px;" type="button"  onclick="calculateBill()">Calculate</button>
+       </div><br>
+       <p style="font-size: large;">Total Amount per Person: <span id="person" style="color: red;">Rs 0.00</span></p>
+   <p style="font-size:large;">Total Amount per Team: <span id="totalCost" style="color: red;">Rs 0.00</span></p><br><br>
+     </div>
+ 
+ </body>
+</html>
